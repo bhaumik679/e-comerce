@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Productcontrollers = require('../Controllers/ProductControllers')
 const verifyToken = require('../Helpers/jwtHelper').verifyAccessToken
-
+//products 
 //find all product
 router.get('/products', Productcontrollers.getAllProducts)
 
