@@ -6,7 +6,6 @@ router.post('/register', AuthController.register)
 
 
 router.post('/login', AuthController.login)
-router.put('/user/:id', AuthController.updateUsers)
 
 router.post('/refresh-token', AuthController.refreshToken)
 

@@ -30,6 +30,7 @@ module.exports = {
         }
     },
 
+
     login: async (req, res, next) => {
         try {
             const result = await authSchema.validateAsync(req.body)
@@ -48,25 +49,6 @@ module.exports = {
             if (error.isJoi === true) return next(createError.BadRequest("Invalid Username/Password"))
             next(error)
 
-        }
-    },
-    updateUsers: async (req, res) => {
-        try {
-            const { id } = req.params;
-            const users = await user.findByIdAndUpdate(id, req.body)
-            // can not find any product in database
-            if (!users) {
-                return res.status(404).json({ message: `can not find any product with ID ${id}` })
-
-            }
-            const updatedusers = await user.findById(id)
-            res.status(200).json(updatedusers)
-
-
-
-        } catch (error) {
-            console.log(error.message);
-            res.status(500).json({ message: error.message })
         }
     },
     refreshToken: async (req, res, next) => {
